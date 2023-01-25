@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func init() {
+func InitConfig() {
 	workDir, _ := os.Getwd()
 	viper.SetConfigName("config")
 	viper.SetConfigType("yml")

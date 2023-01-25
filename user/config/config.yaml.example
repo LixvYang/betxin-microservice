@@ -10,12 +10,12 @@ administrator:
   Password: "000000"
 
 database:
-  Db: mysql
-  DbHost: 127.0.0.1
-  DbPort: 3306
-  DbUser: root
-  DbPassWord: ylx25122
-  DbName: polymarket
+  DB: mysql
+  DBHost: 127.0.0.1
+  DBPort: 3306
+  DBUser: root
+  DBPassWord: ylx25122
+  DBName: polymarket
 
 mail:
   MailHos:
@@ -27,7 +27,7 @@ mail:
 mixinbot:
   Pin: "642519"
   ClientId: "30aad5a5-e5f3-4824-9409-c2ff4152724e"
-  SessionId: "8d773bb8-dbd1-481e-b852-07fe6b8799b4"
+  SessionId: "8d773bb8-DBd1-481e-b852-07fe6b8799b4"
   PinToken: "7amGGSXKZtbMnDOWTlYAprqN6o9KkyQz4cJqAw0-XUc"
   PrivateKey: "zKiJZocFcD8JPRubsL9UB5OD-uhUqKo5Z6K0yk2hf98dN6jog7l5cmXgff8k6Hur-DaJyJLsM0-pk1b7nKN3HA"
   AppSecret: "918f312b6b2c8f391c09eab3f97e30a7b3233421e854eb40066ed4e6a9c53a1a"
@@ -61,7 +61,7 @@ MixinAssetId:
   DOGE: "6770a1e5-6086-44d5-b60f-545f9d9e8ffd"
   RUM: "4f2ec12c-22f4-3a9e-b757-c84b6415ea8f"
   DOT: "54c61a72-b982-4034-a556-0d99e3c21e39"
-  WOO: "b829139c-cdb2-362c-a46d-57c66dce4fcc"
+  WOO: "b829139c-cDB2-362c-a46d-57c66dce4fcc"
   ZEC: "c996abc9-d94e-4494-b1cf-2a3fd3ac5714"
   LTC: "76c802a2-7c88-447f-a93e-c29c9e5dd9c8"
   SHIB: "dcde18b9-f015-326f-b8b1-5b820a060e44"
@@ -83,4 +83,4 @@ MixinAssetId:
   HNS: "13036886-6b83-4ced-8d44-9f69151587bf"
   DASH: "6472e7e3-75fd-48b6-b1dc-28d294ee1476"
   XLM: "56e63c06-b506-4ec5-885a-4a5ac17b83c1"
-  ZEN: "a2c5d22b-62a2-4c13-b3f0-013290dbac60"
+  ZEN: "a2c5d22b-62a2-4c13-b3f0-013290DBac60"

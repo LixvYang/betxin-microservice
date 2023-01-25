@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+option go_package ="./pb;service";
+
+package user;
+
+// ------------------------------------ 
+// Messages
+// ------------------------------------ 
+
+//--------------------------------user--------------------------------
+message User {
+  int64 id = 1; //id
+  string identity_number = 2; //identity_number
+  string mixin_uuid = 3; //mixin_uuid
+  string full_name = 4; //full_name
+  string avatar_url = 5; //avatar_url
+  string mixin_id = 6; //mixin_id
+  string session_id = 7; //session_id
+  string phone = 8; //phone
+  int64 created_at = 9; //created_at
+  int64 updated_at = 10; //updated_at
+}
+
+message AddUserReq {
+  string identity_number = 1; //identity_number
+  string mixin_uuid = 2; //mixin_uuid
+  string full_name = 3; //full_name
+  string avatar_url = 4; //avatar_url
+  string mixin_id = 5; //mixin_id
+  string session_id = 6; //session_id
+  string phone = 7; //phone
+  int64 created_at = 8; //created_at
+  int64 updated_at = 9; //updated_at
+}
+
+message AddUserResp {
+  int64 code = 1;
+  string message = 2; 
+}
+
+message UpdateUserReq {
+  int64 id = 1; //id
+  string identity_number = 2; //identity_number
+  string mixin_uuid = 3; //mixin_uuid
+  string full_name = 4; //full_name
+  string avatar_url = 5; //avatar_url
+  string mixin_id = 6; //mixin_id
+  string session_id = 7; //session_id
+  string phone = 8; //phone
+  int64 created_at = 9; //created_at
+  int64 updated_at = 10; //updated_at
+}
+
+message UpdateUserResp {
+  int64 code = 1;
+  string message = 2; 
+  string usr_id = 3;
+}
+
+message DelUserReq {
+  int64 user_id = 1; //user_id
+}
+
+message DelUserResp {
+  int64 code = 1;
+  string message = 2; 
+}
+
+message GetUserByIdReq {
+  int64 id = 1; //id
+}
+
+message GetUserByIdResp {
+  int64 id = 1; //id
+  string identity_number = 2; //identity_number
+  string mixin_uuid = 3; //mixin_uuid
+  string full_name = 4; //full_name
+  string avatar_url = 5; //avatar_url
+  string mixin_id = 6; //mixin_id
+  string session_id = 7; //session_id
+  string phone = 8; //phone
+  int64 created_at = 9; //created_at
+  int64 updated_at = 10; //updated_at
+}
+
+message ListUserReq {
+  int64 offset = 1;
+  int64 limit = 2;
+}
+
+message ListUserResp {
+  int64 total_count = 1;
+  repeated User list = 2;
+}
+
+// ------------------------------------ 
+// Rpc Func
+// ------------------------------------ 
+
+service UserService { 
+	 //-----------------------user----------------------- 
+	 rpc CreateUser(AddUserReq) returns (AddUserResp); 
+	 rpc UpdateUser(UpdateUserReq) returns (UpdateUserResp); 
+	 rpc DeleteUser(DelUserReq) returns (DelUserResp); 
+	 rpc GetUserInfoByUserId(GetUserByIdReq) returns (GetUserByIdResp); 
+   rpc ListUser(ListUserReq) returns (ListUserResp);
+
+}
