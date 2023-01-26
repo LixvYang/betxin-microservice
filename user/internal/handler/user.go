@@ -2,34 +2,37 @@ package handler
 
 import (
 	"context"
+	"errors"
 
-	service "github.com/lixvyang/betxin-microservice/internal/service/pb"
+	"github.com/jinzhu/copier"
+	"github.com/lixvyang/betxin-microservice/user/internal/repository"
+	service "github.com/lixvyang/betxin-microservice/user/internal/service"
+	"github.com/lixvyang/betxin-microservice/user/pkg/errmsg"
 )
 
-type UserService struct{}
+type UserService struct {
+	*service.UnimplementedUserServiceServer
+}
 
 func NewUserSerivce() *UserService {
 	return &UserService{}
 }
 
 func (*UserService) CreateUser(c context.Context, req *service.AddUserReq) (resp *service.AddUserResp, err error) {
-	// var user repository.User
-	// resp = new(service.AddUserResp)
-	// code := repository.CheckUser(req.IdentityNumber)
-	// if code != errmsg.SUCCSE {
-	// 	v1.SendResponse(c, errmsg.ERROR_CATENAME_USED, nil)
-	// 	return
-	// }
-	// copier.Copy(&user, req)
+	var user repository.User
+	resp = new(service.AddUserResp)
+	code := repository.CheckUser(req.IdentityNumber)
+	if code != errmsg.SUCCSE {
+		return resp, errors.New(errmsg.GetErrMsg(code))
+	}
+	copier.Copy(&user, req)
 
-	// if code = repository.CreateUser(&user); code != errmsg.SUCCSE {
-	// 	v1.SendResponse(c, errmsg.ERROR, nil)
-	// 	return
-	// }
-
-	// betixnredis.DelKeys(v1.USER_LIST, v1.USER_TOTAL)
-	// v1.SendResponse(c, errmsg.SUCCSE, nil)
-	return
+	if code = repository.CreateUser(&user); code != errmsg.SUCCSE {
+		return resp, errors.New(errmsg.GetErrMsg(code))
+	}
+	resp.Code = errmsg.SUCCSE
+	resp.Message = errmsg.GetErrMsg(code)
+	return resp, nil
 }
 
 func (*UserService) UpdateUser(c context.Context, req *service.UpdateUserReq) (resp *service.UpdateUserResp, err error) {

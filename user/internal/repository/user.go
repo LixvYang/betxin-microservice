@@ -3,7 +3,7 @@ package repository
 import (
 	"time"
 
-	"github.com/lixvyang/betxin-microservice/pkg/errmsg"
+	"github.com/lixvyang/betxin-microservice/user/pkg/errmsg"
 )
 
 type User struct {

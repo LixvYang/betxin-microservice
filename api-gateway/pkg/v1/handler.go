@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lixvyang/betxin-microservice/user/pkg/errmsg"
+	"github.com/lixvyang/betxin-microservice/api-gateway/pkg/errmsg"
 )
 
 const (
